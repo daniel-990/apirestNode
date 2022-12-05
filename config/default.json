@@ -1,0 +1,11 @@
+{
+    "servidordb": {
+        "host": "bcbdnp4clfjvyhj0r37q-mysql.services.clever-cloud.com",
+        "user": "uokldxkoryzk33ck",
+        "password": "8lX3lFTjRZ8NHo9XlnIk",
+        "database": "bcbdnp4clfjvyhj0r37q"
+    },
+    "servidor":{
+        "puerto":5000
+    }
+}

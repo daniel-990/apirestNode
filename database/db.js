@@ -1,10 +1,17 @@
 const mysql = require('mysql')
+const config = require('config');
+
+//rutas para la conexion a base de datos
+const host = config.get('servidordb.host');
+const user = config.get('servidordb.user');
+const pass = config.get('servidordb.password');
+const database = config.get('servidordb.database');
 
 const connection = mysql.createConnection({
-    host: 'bcbdnp4clfjvyhj0r37q-mysql.services.clever-cloud.com',
-    user: 'uokldxkoryzk33ck',
-    password: '8lX3lFTjRZ8NHo9XlnIk',
-    database: 'bcbdnp4clfjvyhj0r37q'
+    host: host,
+    user: user,
+    password: pass,
+    database: database
 })
 
 connection.connect((err) => {
