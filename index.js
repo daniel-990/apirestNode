@@ -17,7 +17,7 @@ let respuesta = {
   error: false,
   codigo: 0,
   mensaje: '',
-  parametro: 0,
+  parametro: '',
 }
 
 const urlencodedParser = bodyParser.urlencoded({extended: true});
