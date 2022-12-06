@@ -7,7 +7,7 @@ const config = require('config');
 const conn = require('./database/db.js');
 //puerto
 const puerto = config.get('servidor.puerto');
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || puerto
 
 //app
 const app = express();
@@ -49,13 +49,14 @@ app.get('/productos', (req, res) => {
 
 app.post('/ingresarproductos', urlencodedParser, (req, res) => {
   
-  //se ingresan productos
+  //se ingresan productos parametro query para pasar datos por url 
+  //ejm: http://localhost:5000/ingresarproductos?nombre=prueba1&descripcion=descripcionDeLaprueba1&categoria=prueba1&cantidad=1200&precio=100
   let post = {
-    nombre: req.body.nombre,
-    descripcion: req.body.descripcion,
-    categoria: req.body.categoria,
-    cantidad: req.body.cantidad,
-    precio: req.body.precio
+    nombre: req.query.nombre,
+    descripcion: req.query.descripcion,
+    categoria: req.query.categoria,
+    cantidad: req.query.cantidad,
+    precio: req.query.precio
   }
   //console.log(post);
 
@@ -65,7 +66,7 @@ app.post('/ingresarproductos', urlencodedParser, (req, res) => {
           let respuestaServidor = {
             codigo: respuesta.codigo = 200,
             error: respuesta.error = false,
-            mensaje: respuesta.mensaje = result.body
+            mensaje: respuesta.mensaje = result
           }
           res.send(respuestaServidor);
         }else{
