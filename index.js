@@ -68,7 +68,7 @@ app.post('/ingresarproductos', urlencodedParser, (req, res) => {
             codigo: respuesta.codigo = 200,
             error: respuesta.error = false,
             mensaje: respuesta.mensaje = result,
-            parametro: 'datos cargados con exito'
+            parametro: 'datos guardados con exito'
           }
           res.send(respuestaServidor);
         }else{
