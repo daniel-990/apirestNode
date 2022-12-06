@@ -16,7 +16,8 @@ const app = express();
 let respuesta = {
   error: false,
   codigo: 0,
-  mensaje: ''
+  mensaje: '',
+  parametro: 0,
 }
 
 const urlencodedParser = bodyParser.urlencoded({extended: true});
@@ -66,7 +67,8 @@ app.post('/ingresarproductos', urlencodedParser, (req, res) => {
           let respuestaServidor = {
             codigo: respuesta.codigo = 200,
             error: respuesta.error = false,
-            mensaje: respuesta.mensaje = result
+            mensaje: respuesta.mensaje = result,
+            parametro: 'datos cargados con exito'
           }
           res.send(respuestaServidor);
         }else{
