@@ -11,6 +11,9 @@ const PORT = process.env.PORT || puerto
 
 //app
 const app = express();
+//utilidades
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 //respuesta del servidor
 let respuesta = {
@@ -24,7 +27,12 @@ const urlencodedParser = bodyParser.urlencoded({extended: true});
 app.use(bodyParser.json()) // for parsing application/json
 const jsonParser = bodyParser.json();
 
-app.get('/productos', (req, res) => {
+app.get('/', (req, res) =>{
+  res.render('pages/index');
+})
+
+//GET
+app.get('/productos', (req, res) => { 
   conn.connect(() => {
     conn.query('SELECT * FROM db_producto', (err, result) => {
       if(err){
@@ -47,9 +55,8 @@ app.get('/productos', (req, res) => {
   })
 
 })
-
+//POST
 app.post('/ingresarproductos', urlencodedParser, (req, res) => {
-  
   //se ingresan productos parametro query para pasar datos por url 
   //ejm: http://localhost:5000/ingresarproductos?nombre=prueba1&descripcion=descripcionDeLaprueba1&categoria=prueba1&cantidad=1200&precio=100
   let post = {
