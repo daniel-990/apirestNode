@@ -1,23 +1,10 @@
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-app ---> [https://serene-lake-68836.herokuapp.com/](https://serene-lake-68836.herokuapp.com/)
+# hellonode
 
-## Deploying to Heroku
+## A Fly Example
 
-```
-$ heroku create
-$ git push heroku main
-$ heroku open
-```
-or
+This is a simple application used in the [fly.io Getting Started](https://fly.io/docs/getting-started/node/)  documentation showing how to deploy a Node application using Flyctl's builtin Nodejs deployment option.
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+* Run flyctl init
+* When prompted for a builder, select builtin Nodejs.
+* Run flyctl deploy
 
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started on Heroku with Node.js](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
