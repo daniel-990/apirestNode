@@ -33,7 +33,7 @@ app.get('/', (req, res) =>{
 
 //GET
 app.get('/productos', (req, res) => { 
-  conn.connect(() => {
+  conn.getConnection(() => {
     conn.query('SELECT * FROM db_producto', (err, result) => {
       if(err){
           let respuestaServidor = {
@@ -68,7 +68,7 @@ app.post('/ingresarproductos', urlencodedParser, (req, res) => {
   }
   //console.log(post);
 
-  conn.connect(() =>{
+  conn.getConnection(() =>{
     conn.query("INSERT INTO db_producto (nombre, descripcion, categoria, cantidad, precio) VALUES ('"+post.nombre+"','"+post.descripcion+"','"+post.categoria+"','"+post.cantidad+"','"+post.precio+"')", (err, result) => {
         if(!err){
           let respuestaServidor = {

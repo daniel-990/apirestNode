@@ -7,14 +7,17 @@ const user = config.get('servidordb.user');
 const pass = config.get('servidordb.password');
 const database = config.get('servidordb.database');
 
-const connection = mysql.createConnection({
+const pool = mysql.createPool({
+    connectionLimit: 4,
+    waitForConnections: true,
+    queueLimit: 0,
     host: host,
     user: user,
     password: pass,
     database: database
 })
 
-connection.connect((err) => {
+pool.getConnection((err, connection) => {
     if(err){
         console.log('error al conectar a la base de datos');
     }else{
@@ -22,4 +25,4 @@ connection.connect((err) => {
     }
 })
 
-module.exports = connection;
+module.exports = pool;
